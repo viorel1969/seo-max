@@ -1,0 +1,162 @@
+---
+import site from "../data/site.json";
+
+const servicii = [
+  { value: "seo_ecommerce", label: "SEO pentru magazin online" },
+  { value: "content_seo", label: "Content SEO (categorii, produse, blog)" },
+  { value: "seo_tehnic", label: "SEO tehnic (viteză, indexare)" },
+  { value: "link_building", label: "Link building" },
+  { value: "audit_seo", label: "Audit SEO" },
+  { value: "recenzii", label: "Recenzii" },
+  { value: "seo_local_gbp", label: "SEO local (Google Business Profile)" },
+  { value: "seo_local_oras_zona", label: "SEO local (oraș / zonă)" },
+  { value: "citations", label: "Citations / listări" },
+  { value: "nu_stiu_recomandati", label: "Nu știu / recomandați" },
+];
+---
+
+<section id="contact" class="pt-16 md:pt-24 pb-24 md:pb-32 bg-gradient-to-br from-navy-900 via-navy-800 to-blue-600 text-white">
+  <div class="container mx-auto px-3 md:px-4">
+    <div class="max-w-5xl mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 md:whitespace-nowrap">Vrei un Consultant SEO Care Răspunde Direct?</h2>
+      <p class="text-xl text-gray-100 mb-2 max-w-2xl mx-auto">Diagnostic SEO în 48h cu pași concreți pentru site-ul tău.</p>
+      <p class="text-lg text-gray-200 max-w-2xl mx-auto">Completează formularul ↓ (2 minute). Îți răspund eu personal, nu un account manager.</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-2xl p-4 md:p-8">
+      <!--
+        NOTA: data-api-url trebuie sa indice un endpoint real (ex: /api/lead-capture,
+        o functie serverless Astro sau alt backend). Logica PHP din lead-capture.php
+        nu poate fi "mutata" automat - trebuie rescrisa. Trimite-mi acel fisier daca
+        vrei sa-l convertesc intr-un API route Astro.
+      -->
+      <form id="contact-form" class="space-y-6 md:space-y-8" novalidate data-api-url="/api/lead-capture" data-pagina="homepage">
+
+        <!-- Honeypot anti-spam -->
+        <div style="position:absolute; left:-9999px; height:0; overflow:hidden;" aria-hidden="true">
+          <input type="text" name="referral_code_alt" autocomplete="off" tabindex="-1" value="" aria-label="Camp anti-spam - nu completati" aria-hidden="true" />
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 md:p-6">
+          <h3 class="text-lg font-bold text-gray-900 mb-4">📋 Date Personale</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label for="numeInput" class="block text-sm font-semibold text-gray-700 mb-2">Nume <span class="text-red-600">*</span></label>
+              <input type="text" id="numeInput" name="nume" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition text-gray-900" placeholder="Numele tău" autocomplete="name" />
+            </div>
+            <div>
+              <label for="emailInput" class="block text-sm font-semibold text-gray-700 mb-2">Email <span class="text-red-600">*</span></label>
+              <input type="email" id="emailInput" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition text-gray-900" placeholder="nume@firma.ro" autocomplete="email" />
+            </div>
+            <div>
+              <label for="telefonInput" class="block text-sm font-semibold text-gray-700 mb-2">Telefon mobil RO <span class="text-red-600">*</span></label>
+              <input type="tel" id="telefonInput" name="telefon" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition text-gray-900" placeholder="0712 345 678" autocomplete="tel" inputmode="tel" />
+            </div>
+            <div>
+              <label for="orasInput" class="block text-sm font-semibold text-gray-700 mb-2">Oraș <span class="text-red-600">*</span></label>
+              <input type="text" id="orasInput" name="oras" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition text-gray-900" placeholder="București, Cluj, Iași..." autocomplete="address-level2" />
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 md:p-6">
+          <h3 class="text-lg font-bold text-gray-900 mb-4">🌐 Website</h3>
+          <label for="websiteInput" class="block text-sm font-semibold text-gray-700 mb-2">Website <span class="text-red-600">*</span></label>
+          <input type="url" id="websiteInput" name="website" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition text-gray-900" placeholder="https://exemplu.ro" autocomplete="url" />
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 md:p-6">
+          <h3 class="text-lg font-bold text-gray-900 mb-4">🎯 Ce Te Interesează?</h3>
+          <div class="grid md:grid-cols-2 gap-3">
+            {servicii.map((s) => (
+              <label class="flex items-start gap-2 cursor-pointer">
+                <input type="checkbox" name="servicii_selectate" value={s.value} class="mt-1 w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500" />
+                <span class="text-sm font-medium text-gray-900">{s.label}</span>
+              </label>
+            ))}
+          </div>
+          <p class="text-sm text-gray-600 mt-4">Bifează ce ți se potrivește - dacă nu știi, te ajutăm noi.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 md:p-6">
+            <label for="obiectiv_3_luni" class="block text-sm font-semibold text-gray-700 mb-2">Obiectiv în 3 luni <span class="text-red-600">*</span></label>
+            <textarea id="obiectiv_3_luni" name="obiectiv_3_luni" required rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition text-gray-900 resize-none" placeholder="Ex: Mai mult trafic, mai multe vânzări..."></textarea>
+          </div>
+          <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 md:p-6">
+            <label for="problema_curenta" class="block text-sm font-semibold text-gray-700 mb-2">Problemă curentă <span class="text-red-600">*</span></label>
+            <textarea id="problema_curenta" name="problema_curenta" required rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition text-gray-900 resize-none" placeholder="Ex: Nu avem comenzi, pagini neindexate..."></textarea>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 md:p-6">
+          <label for="buget_lunar" class="block text-sm font-semibold text-gray-700 mb-2">Buget lunar (Opțional)</label>
+          <select id="buget_lunar" name="buget_lunar" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition text-gray-900">
+            <option value="">- alege -</option>
+            <option value="sub_500">Sub 500€</option>
+            <option value="500_1000">500–1000€</option>
+            <option value="1000_2000">1000–2000€</option>
+            <option value="2000_plus">2000€+</option>
+            <option value="nu_stiu">Nu știu încă</option>
+          </select>
+        </div>
+
+        <div class="flex items-start">
+          <input type="checkbox" id="acceptPoliticaTop" name="accepta_politica_confidentialitate" required class="mt-1 w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500" />
+          <label for="acceptPoliticaTop" class="ml-3 text-sm text-gray-700 font-semibold">
+            Accept <a href={`${site.basePath}/politica-confidentialitate`} class="text-blue-600 hover:underline" target="_blank">Politica de Confidențialitate</a> <span class="text-red-600">*</span>
+          </label>
+        </div>
+
+        <div class="flex items-start">
+          <input type="checkbox" id="acceptTermeniTop" name="accepta_termeni_conditii" required class="mt-1 w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500" />
+          <label for="acceptTermeniTop" class="ml-3 text-sm text-gray-700 font-semibold">
+            Accept <a href={`${site.basePath}/termeni-conditii`} class="text-blue-600 hover:underline" target="_blank">Termenii și Condițiile</a> <span class="text-red-600">*</span>
+          </label>
+        </div>
+
+        <div class="space-y-4">
+          <button type="submit" class="w-full bg-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+            Trimite Cererea → Audit Gratuit 48h
+          </button>
+          <div id="msg" class="text-center font-bold text-base"></div>
+        </div>
+
+        <div class="max-w-sm mx-auto">
+          <div class="flex flex-col md:flex-row md:justify-center items-start md:items-center gap-3 md:gap-4 text-sm text-gray-600 pt-4">
+            <span>100% Gratuit</span>
+            <span>Fără Spam</span>
+            <span>Răspund Personal</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Trimitere simpla catre API - inlocuieste logica reala din contact-form.js
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const msg = document.getElementById("msg");
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const apiUrl = form.dataset.apiUrl;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch(apiUrl!, { method: "POST", body: formData });
+      if (!res.ok) throw new Error("Eroare server");
+      if (msg) {
+        msg.textContent = "Trimis! Te contactez în maxim 48h.";
+        msg.className = "text-center font-bold text-base text-green-600";
+      }
+      form.reset();
+    } catch {
+      if (msg) {
+        msg.textContent = "A apărut o eroare. Încearcă din nou sau scrie-mi direct pe email.";
+        msg.className = "text-center font-bold text-base text-red-600";
+      }
+    }
+  });
+</script>

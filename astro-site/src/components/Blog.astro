@@ -1,0 +1,39 @@
+---
+import blogPosts from "../data/blogPosts.json";
+import site from "../data/site.json";
+
+const tagClasses: Record<string, string> = {
+  orange: "text-orange-600 bg-orange-50",
+  purple: "text-purple-600 bg-purple-50",
+  green: "text-green-600 bg-green-50",
+};
+const ctaClasses: Record<string, string> = {
+  orange: "text-orange-600",
+  purple: "text-purple-600",
+  green: "text-green-600",
+};
+---
+
+<section class="py-16 md:py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">📚 Resurse SEO Gratuite</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Ghiduri practice, studii de caz reale și strategii SEO actualizate pentru 2026</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      {blogPosts.map((post) => (
+        <a href={`${site.basePath}${post.href}`} class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:-translate-y-1 transition block">
+          <span class={`text-xs font-semibold uppercase tracking-wide px-2 py-1 rounded ${tagClasses[post.tagColor]}`}>{post.tag}</span>
+          <h3 class="font-bold text-gray-900 mt-3 mb-2 text-lg">{post.title}</h3>
+          <p class="text-sm text-gray-600 mb-4">{post.excerpt}</p>
+          <span class={`font-semibold text-sm ${ctaClasses[post.tagColor]}`}>{post.cta}</span>
+        </a>
+      ))}
+    </div>
+    <div class="text-center mt-10">
+      <a href={`${site.basePath}/blog/`} class="inline-flex items-center gap-2 bg-white border-2 border-navy-800 text-navy-800 px-8 py-3 rounded-lg font-semibold hover:bg-navy-800 hover:text-white transition">
+        Vezi toate articolele din blog →
+      </a>
+    </div>
+  </div>
+</section>

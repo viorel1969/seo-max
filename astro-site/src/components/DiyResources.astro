@@ -1,0 +1,30 @@
+---
+import site from "../data/site.json";
+---
+
+<section id="resurse-diy" class="py-16 md:py-20 bg-white scroll-mt-20">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Îți Faci Singur(ă) Promovarea? Ia De Aici, Gratuit</h2>
+      <p class="text-lg text-gray-600">
+        Dacă ești la început și bugetul se duce pe stoc, nu pe agenții - normal. Astea sunt uneltele cu care poți lucra
+        singur(ă), fără să plătești nimic. Când te lovești de plafon, știi unde mă găsești.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <a href={`${site.basePath}/resurse-seo`} class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:-translate-y-1 transition block">
+        <div class="text-3xl mb-3">🧮</div>
+        <h3 class="font-bold text-gray-900 mb-2 text-lg">Calculator ROI + Audit Instant</h3>
+        <p class="text-sm text-gray-600 mb-4">Unelte live, nu PDF-uri moarte: calculezi cât valorează traficul organic pentru tine și îți verifici site-ul pe loc.</p>
+        <span class="text-blue-600 font-semibold text-sm">Folosește uneltele →</span>
+      </a>
+      <a href={`${site.basePath}/resurse-seo#checklist-pdf`} class="bg-gray-50 border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:-translate-y-1 transition block">
+        <div class="text-3xl mb-3">✅</div>
+        <h3 class="font-bold text-gray-900 mb-2 text-lg">Checklist SEO (PDF, 16 pagini)</h3>
+        <p class="text-sm text-gray-600 mb-4">Lista completă de verificări, pe care o bifezi în ritmul tău. O primești pe email, ca s-o ai mereu la îndemână.</p>
+        <span class="text-blue-600 font-semibold text-sm">Descarcă checklist-ul →</span>
+      </a>
+    </div>
+  </div>
+</section>

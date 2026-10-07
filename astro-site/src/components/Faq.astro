@@ -1,0 +1,28 @@
+---
+import faq from "../data/faq.json";
+---
+
+<section class="py-16 md:py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Întrebări Frecvente</h2>
+      <p class="text-lg text-gray-600">Răspunsuri clare la întrebările tale.</p>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-4">
+      {faq.map((item) => (
+        <details name="faq-home" class="faq-item bg-white rounded-lg shadow-sm overflow-hidden">
+          <summary class="w-full text-left px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition cursor-pointer">
+            <span class="font-semibold text-gray-900">{item.question}</span>
+            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-4">
+            <p class="text-gray-600 leading-relaxed">{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

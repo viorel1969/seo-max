@@ -1,0 +1,75 @@
+---
+import site from "../data/site.json";
+---
+
+<section class="relative bg-gradient-to-br from-navy-900 via-navy-800 to-blue-600 text-white py-12 md:py-20 overflow-hidden">
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+
+      <div class="inline-flex items-center bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-semibold text-sm mb-6">
+        👤 SEO-MAX — Consultant SEO Independent din România · Lucrezi Direct cu Mine
+      </div>
+
+      <h1 class="speakable-hook text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 leading-tight">
+        <span class="block">Consultant SEO România<br /> pentru magazine online</span>
+        <span class="block text-yellow-400">care vor vânzări din Google,<br /> nu doar din reclame plătite</span>
+      </h1>
+
+      <p class="speakable-summary text-lg md:text-xl mb-3 text-gray-100 leading-snug font-semibold">
+        Oprești campania de reclame și comenzile se opresc odată cu ea? Asta nu e un canal de vânzări, e o chirie
+        care crește în fiecare an. Eu construiesc varianta pe care o deții: trafic organic care lucrează și când
+        bugetul de Ads stă pe pauză. Sunt Viorel Anghelina și fac asta singur, de la audit până la raport, fără
+        account manager, fără juniori.
+      </p>
+      <p class="text-base md:text-lg mb-6 text-gray-200">
+        Primul lucru pe care ți-l spun la diagnostic e dacă merită să investești în SEO acum.<br />
+        Uneori răspunsul e „încă nu", și ți-l spun gratis, în 48 de ore.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto mb-6">
+        <a href="#contact" class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:border-orange-400 transition-all text-left group">
+          <div class="text-3xl mb-2">🛍️</div>
+          <div class="text-white font-bold text-lg mb-1">Am magazin online</div>
+          <div class="text-gray-300 text-sm mb-2">Vreau vânzări din trafic organic, fără să depind de reclame</div>
+          <div class="text-orange-400 text-sm font-semibold group-hover:underline">Cere diagnostic gratuit în 48h →</div>
+        </a>
+        <a href="#resurse-diy" class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:bg-white/20 hover:border-orange-400 transition-all text-left group">
+          <div class="text-3xl mb-2">🛠️</div>
+          <div class="text-white font-bold text-lg mb-1">Îmi fac singur(ă) promovarea</div>
+          <div class="text-gray-300 text-sm mb-2">Buget mic, timp mult: ghiduri și unelte gratuite, fără email obligatoriu</div>
+          <div class="text-orange-400 text-sm font-semibold group-hover:underline">Ia resursele gratuite →</div>
+        </a>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+        <a
+          href="#contact"
+          class="bg-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 w-full sm:w-auto"
+        >
+          Vreau diagnosticul sincer în 48h →
+        </a>
+        <a
+          href={`${site.basePath}/preturi`}
+          class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-navy-800 transition-all duration-200 w-full sm:w-auto"
+        >
+          Vezi planul de lucru →
+        </a>
+      </div>
+
+      <div class="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-200">
+        <div class="flex items-center gap-2">
+          <span>Lucrez cu maxim 8-10 clienți simultan</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span>Refuz proiectele unde investiția nu se recuperează</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span>Contract lunar: oprești oricând, cu preaviz de 14 zile</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span><a href={`${site.basePath}/despre#certificari`} class="hover:underline">Certificat Semrush Academy</a> — curs recomandat de Brian Dean (Backlinko)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,5 @@
+[
+  { "key": "starter", "label": "Starter", "desc": "Site-uri mici și magazine la început, fără competiție puternică.", "highlight": false },
+  { "key": "professional", "label": "Professional", "desc": "Magazine online cu catalog activ și competiție reală. Include content și Core Web Vitals.", "highlight": true },
+  { "key": "enterprise", "label": "Enterprise", "desc": "Cataloage mari (500+ pagini) și competiție națională. Include link building.", "highlight": false }
+]

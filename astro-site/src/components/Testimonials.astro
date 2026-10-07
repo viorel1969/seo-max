@@ -1,0 +1,37 @@
+---
+import testimonials from "../data/testimonials.json";
+---
+
+<section class="py-16 md:py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ce Spun Antreprenorii Români</h2>
+      <p class="text-lg text-gray-600">Recenzii din profilul Google Business - verificabile oricând.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      {testimonials.map((t) => (
+        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+          <div class="flex items-center mb-4">
+            <div class={`w-12 h-12 bg-gradient-to-br ${t.gradient} rounded-full mr-4 flex items-center justify-center text-white font-bold text-lg flex-shrink-0`}>
+              {t.initial}
+            </div>
+            <div>
+              <p class="font-bold text-gray-900">{t.name}</p>
+              <p class="text-sm text-gray-600">{t.role}</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 leading-relaxed">"{t.text}"</p>
+          <div class="text-yellow-400 text-lg">★★★★★</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="max-w-6xl mx-auto mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-gray-500">
+      <span>Recenziile de mai sus sunt preluate din profilul Google Business al SEO-MAX si pot fi verificate oricand.</span>
+      <a href="https://maps.app.goo.gl/QwL1nFoNgZCr7Y8r9" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-blue-600 font-semibold hover:text-blue-700 transition whitespace-nowrap">
+        Vezi pe Google Maps
+      </a>
+    </div>
+  </div>
+</section>

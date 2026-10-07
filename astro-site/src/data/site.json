@@ -1,0 +1,13 @@
+{
+  "siteName": "SEO-MAX",
+  "siteUrl": "https://seo-max.ro",
+  "basePath": "",
+  "contactPhone": "PUNE_AICI_TELEFONUL",
+  "contactEmail": "PUNE_AICI_EMAILUL",
+  "contactAddress": "PUNE_AICI_ADRESA",
+  "pricing": {
+    "starter": 0,
+    "professional": 0,
+    "enterprise": 0
+  }
+}

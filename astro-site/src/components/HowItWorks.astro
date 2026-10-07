@@ -1,0 +1,39 @@
+---
+const steps = [
+  { num: 1, color: "bg-orange-500", title: "Completezi Formularul (2 Minute)", text: "Îmi spui despre business-ul tău: ce vinzi, unde vrei să apari pe Google, ce probleme ai acum. Primești diagnosticul direct de la consultant SEO România, nu de la account manager." },
+  { num: 2, color: "bg-orange-500", title: "Primești Audit Gratuit (În 48h)", text: "Ca un consultant SEO senior, analizez magazinul tău: probleme tehnice, categorii și fișe de produs, conținut, concurență. Îți trimit un PDF cu top 5 probleme și cum le rezolvăm. Gratuit, fără obligație." },
+  { num: 3, color: "bg-orange-500", title: "Alegem Planul Potrivit", text: "Vorbim 15 minute (telefon sau video) - direct cu consultant SEO senior, nu cu vânzător. Îți explic exact ce fac, când vezi rezultate, cum lucrăm. Prețurile le vezi pe pagina dedicată - decizi tu, în liniște." },
+  { num: 4, color: "bg-green-500", title: "Aplicăm Sistemul 4 Layere (Rezultate 60-180 zile)", text: "Layer 1-2 (luna 1): tehnic + arhitectură. Layer 3-4 (luna 2-3): content + conversie. Primele mișcări vizibile în 30-45 zile, consolidare 90-180 zile. Consultant SEO direct pe fiecare layer, raport lunar concret." },
+];
+---
+
+<section class="py-16 md:py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Cum Lucrez Ca Consultant SEO (4 Pași)</h2>
+      <p class="text-lg text-gray-600">De la formular la audit, de la audit la implementare. Procesul concret cu un consultant SEO independent.</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="space-y-8">
+        {steps.map((s) => (
+          <div class="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 text-center md:text-left">
+            <div class={`flex-shrink-0 w-16 h-16 ${s.color} text-white rounded-full flex items-center justify-center text-2xl font-bold`}>
+              {s.num}
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">{s.title}</h3>
+              <p class="text-gray-600 leading-relaxed">{s.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="#contact" class="inline-block bg-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition-all duration-200 shadow-lg">
+        Începe Azi - Pasul 1&nbsp;&nbsp;(2 Minute) →
+      </a>
+    </div>
+  </div>
+</section>

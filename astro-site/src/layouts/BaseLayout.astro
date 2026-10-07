@@ -1,0 +1,81 @@
+---
+import site from "../data/site.json";
+import faqData from "../data/faq.json";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+}
+
+const { title, description, canonical, ogImage = "/assets/img/og/og-homepage.webp" } = Astro.props;
+
+// Echivalentul @graph-ului JSON-LD din index.php (ProfessionalService + WebPage + FAQPage)
+const schemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": `${site.siteUrl}/#organization`,
+      "name": site.siteName,
+      "url": site.siteUrl,
+      "telephone": site.contactPhone,
+      "email": site.contactEmail,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": site.contactAddress,
+        "addressCountry": "RO",
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${site.siteUrl}/#webpage`,
+      "url": canonical,
+      "name": title,
+      "description": description,
+      "inLanguage": "ro-RO",
+      "mainEntity": { "@id": `${site.siteUrl}/#faq` },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".speakable-hook", ".speakable-summary"],
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${site.siteUrl}/#faq`,
+      "mainEntity": faqData.map((item) => ({
+        "@type": "Question",
+        "@id": `${site.siteUrl}/#${item.id}`,
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body class="font-sans text-gray-900">
+    <!-- TODO: aici vine header.php real (logo, meniu principal) - trimite-mi-l ca sa-l convertesc -->
+    <slot />
+    <!-- TODO: aici vine footer.php real (linkuri legale, social, sitemap) - trimite-mi-l ca sa-l convertesc -->
+  </body>
+</html>

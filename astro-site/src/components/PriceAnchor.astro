@@ -1,0 +1,44 @@
+---
+import pricing from "../data/pricing.json";
+import site from "../data/site.json";
+
+const prices: Record<string, number> = site.pricing;
+---
+
+<section class="py-16 md:py-20 bg-gradient-to-br from-navy-900 via-navy-800 to-blue-600 text-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Cât Costă? Îți Spun Direct, Fără "Cere Ofertă"</h2>
+      <p class="text-lg text-gray-200">
+        Prețul depinde de 3 lucruri: cât de puternică e concurența ta, câte pagini au nevoie de lucru și în ce ritm vrei să creștem.
+        De aceea există 3 pachete, tarifate pe ROI proiectat: dacă investiția nu se recuperează în 6-9 luni, refuz proiectul.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
+      {pricing.map((pkg) => (
+        <div class={`bg-white rounded-xl p-6 text-center shadow-lg relative ${pkg.highlight ? "border-2 border-orange-400" : ""}`}>
+          {pkg.highlight && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              CEL MAI ALES
+            </div>
+          )}
+          <div class={`text-sm font-semibold uppercase tracking-wide mb-2 ${pkg.highlight ? "text-orange-600" : "text-gray-500"}`}>
+            {pkg.label}
+          </div>
+          <div class="text-4xl font-black text-navy-800 mb-1">
+            €{prices[pkg.key]}<span class="text-lg font-semibold text-gray-500">/lună</span>
+          </div>
+          <p class="text-gray-600 text-sm">{pkg.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <a href={`${site.basePath}/preturi`} class="inline-block bg-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition-all duration-200 shadow-lg mr-0 sm:mr-4 mb-4 sm:mb-0">
+        Vezi ce include fiecare pachet →
+      </a>
+      <p class="text-sm text-gray-300 mt-4">Nu știi ce pachet ți se potrivește? Cere diagnosticul gratuit - îți recomand pachetul în 48h, cu argumente.</p>
+    </div>
+  </div>
+</section>

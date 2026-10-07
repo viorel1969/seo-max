@@ -1,0 +1,42 @@
+---
+import site from "../data/site.json";
+
+const painPoints = [
+  { icon: "📈", title: "Bugetul Facebook Ads crește lună de lună", text: "CPL pe beauty/fashion a urcat 40% în 2 ani. Mâine costă mai mult decât azi. Marja ta scade - nu poți dubla bugetul fără să mănânci profitul." },
+  { icon: "📉", title: "Vânzările dispar când oprești reclamele", text: "Site-ul primește aproape zero vizitatori organici. Depinzi 100% de Facebook/Google Ads. Te oprești o săptămână - comenzile cad cu 70%." },
+  { icon: "🥇", title: "Concurența pe pozițiile 1-3 Google. Tu - pe pagina 5+", text: "Pentru produsele tale principale, concurenții apar primii. Tu nu apari nici pe pagina 5 - zero schema produs, zero keyword tranzacțional." },
+  { icon: "📦", title: "500+ produse, niciunul optimizat", text: "Ai catalog mare, dar fără descrieri optimizate, fără review schema, fără internal linking. Google nu știe ce vinzi - și nu te recomandă cumpărătorilor." },
+];
+---
+
+<section class="py-16 md:py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Recunoști Vreuna Din Problemele Astea?</h2>
+      <p class="text-lg text-gray-600">
+        Le aud de la fiecare proprietar de magazin online care ajunge la mine. Astea sunt problemele pe care le rezolv ca consultant SEO România:
+      </p>
+    </div>
+
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-6">
+        {painPoints.map((p) => (
+          <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-pink-500">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 text-3xl">{p.icon}</div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-900 mb-2">{p.title}</h3>
+                <p class="text-gray-600">{p.text}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-sm text-gray-500 mt-8">
+        Ai cabinet sau firmă de servicii, nu magazin? Lucrez selectiv și cu
+        <a href={`${site.basePath}/seo-local`} class="text-blue-600 hover:underline">afaceri locale</a>.
+      </p>
+    </div>
+  </div>
+</section>

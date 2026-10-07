@@ -1,0 +1,48 @@
+---
+const usps = [
+  { color: "green", title: "Sistemul SEO pe 4 Layere", text: "Sistemul SEO pe 4 Layere este metoda prin care lucrez simultan pe patru direcții — tehnic, arhitectură, content și conversie. Pe un magazin online asta înseamnă: indexare și viteză, structura categoriilor, conținut care rankează, fișe de produs care vând. Cele 4 layere lucrează simultan - diferența între SEO care raportează poziții și SEO care aduce comenzi." },
+  { color: "blue", title: "Direct cu Consultantul", text: "Lucrezi 1-la-1 cu consultantul SEO, nu cu echipa de juniori. Eu fac auditul, eu optimizez, eu raportez. Zero pierderi de informație între account manager și executant." },
+  { color: "orange", title: "Lucrez Selectiv", text: "Doar magazine online și firme cu marjă reală per comandă sau client. Sub 200€/lună sau marjă prea mică - nu lucrăm. Vrei volum ieftin sau scheme rapide - caută altundeva." },
+];
+
+const bgByColor: Record<string, string> = {
+  green: "bg-green-100 text-green-600",
+  blue: "bg-blue-100 text-blue-600",
+  orange: "bg-orange-100 text-orange-600",
+};
+---
+
+<section id="avatar-segments" class="py-16 md:py-20 bg-white scroll-mt-20">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        De ce un Consultant SEO Independent<br />
+        <span class="text-orange-500">e diferit de o agenție SEO</span>
+      </h2>
+      <p class="text-lg text-gray-600">
+        Lucrezi direct cu mine pe fiecare detaliu. Nu cu un account manager care preia brief-ul, nu cu un junior care execută. Asta înseamnă concret 3 lucruri:
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+      {usps.map((usp) => (
+        <div class="text-center">
+          <div class={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 ${bgByColor[usp.color]}`}>
+            <span class="text-2xl">●</span>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">{usp.title}</h3>
+          <p class="text-gray-600">{usp.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <a
+        href="#contact"
+        class="inline-block bg-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+      >
+        Începe Acum - Audit Gratuit 48h →
+      </a>
+    </div>
+  </div>
+</section>
